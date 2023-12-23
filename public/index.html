@@ -11,7 +11,7 @@
     <meta name="author" content="Konstantinos Platias-Pavlos Tsikrikas">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/png" href="../images/logo_use_2.png">
+    <link rel="shortcut icon" type="image/png" href="images/logo_use_2.png"> <!-- fix that-->
 
 
     <!-- Load the Handlebars library. The Handlebars object is 
@@ -53,18 +53,24 @@
                 type = "text/x-handlebars-template">
             {{#each this}}
                 <h1>{{this.title}}</h1>
-                <a href="category.html">
+                <a href="category.html?id={{this.id}}">
                     <img src="http://wiki-ads.onrender.com/{{this.img_url}}"   alt="{{this.title}}">
                 </a>
-                
+                {{#if this.this.subcategories.length}}
                 <ul>
-                    {{#each subcategories}}
-                        <li>
-                            <a href="subcategory.html"> {{this.title}} </a>    
-                        </li>
+                    {{#each subcategories}}   
+                            <p> yooooo</p>              
+                            
+                                <li>
+                                    <a href="subcategory.html"> {{this.title}} </a>    
+                                </li>
+                                           
                     {{/each}}
-                </ul>
-            {{/each}} 
+                </ul>  
+                {{else}}
+                    <p>No subcategories available mann</p>
+                {{/if}}
+            {{/each}}   
 
         </script>
 

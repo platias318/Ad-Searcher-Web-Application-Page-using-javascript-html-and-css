@@ -9,7 +9,7 @@ app.listen(port)
     Serve static content from directory "public",
     it will be accessible under path /, 
     e.g. http://localhost:8080/index.html
-*/
+*/  
 app.use(express.static('public'))
 
 // parse url-encoded content from body

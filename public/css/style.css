@@ -1,26 +1,4 @@
 /* Put your CSS stylesheets here */
-/* 
-@font-face { /*It imports the custom font we downloaded
-    font-family: 'Rowdies';
-    src: url(fonts/Rowdies-Bold.ttf);
-  }
-  
-  @font-face { /*It imports the custom font we downloaded
-    font-family: 'Cookies';
-    src: url(fonts/Cookie-Regular.ttf);
-  }
-  
-  @font-face { /*It imports the custom font we downloaded
-    font-family: 'Chakra';
-    src: url(fonts/ChakraPetch-Light.ttf);
-  }
-  
-  @font-face { /*It imports the custom font we downloaded
-    font-family: 'Comfortaa';
-    src: url(fonts/Comfortaa-VariableFont_wght.ttf);
-  }
-   */
-
    
   h2 {  /* Changes the font, font size, color, text position, shadow and margin from other texts for every h2 headers */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -502,7 +480,7 @@
     }
   
     .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
-      font-size: 2.5vw;
+      font-size: 3.5vw;
     }
     
     footer { /* This class extends the elements of the same class declared earlier outside the @media query, and changes the font size of the footer based on the length of the viewport */
@@ -552,7 +530,7 @@
     }
   
     .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
-      font-size: 2vw;
+      font-size: 3vw;
     }
   }
   
@@ -568,6 +546,6 @@
     }
   
     .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
-      font-size: 1.4vw;
+      font-size: 2.0vw;
     }
   }
