@@ -1,5 +1,573 @@
 /* Put your CSS stylesheets here */
+/* 
+@font-face { /*It imports the custom font we downloaded
+    font-family: 'Rowdies';
+    src: url(fonts/Rowdies-Bold.ttf);
+  }
+  
+  @font-face { /*It imports the custom font we downloaded
+    font-family: 'Cookies';
+    src: url(fonts/Cookie-Regular.ttf);
+  }
+  
+  @font-face { /*It imports the custom font we downloaded
+    font-family: 'Chakra';
+    src: url(fonts/ChakraPetch-Light.ttf);
+  }
+  
+  @font-face { /*It imports the custom font we downloaded
+    font-family: 'Comfortaa';
+    src: url(fonts/Comfortaa-VariableFont_wght.ttf);
+  }
+   */
 
-h1 {
-    color: blue;
-}
+   
+  h2 {  /* Changes the font, font size, color, text position, shadow and margin from other texts for every h2 headers */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #000000; 
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  h3 { /* Changes the font, font size, color, text position, shadow and margin from other texts for every h3 headers */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 154%; 
+    color: #000000; 
+    text-align: left; 
+    margin-top: 6%; 
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  p { /* Changes the font, font size, color, text position, shadow and margin from other texts for every p element */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 173%; 
+    color: #000000; 
+    text-align: left; 
+    margin-top: 5% ; 
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  main { /* Changes the background color for every text that is inside the main header */
+    background-color:rgba(255, 255, 255, 0.4);
+  }
+  
+    
+  td {  /*It changes the font, etc of all td elements*/
+    font-size:130%;
+    border: 2px solid #cfa005;
+    padding: 0.5%;
+    text-align: center;
+  }
+  
+  img { /*It changes the height , weight etc of all the images */
+    max-width: 50%;
+    height: auto;
+    margin: 0%;
+    float:left;
+    margin-right: 15px;
+  } 
+  
+  body { /*It changes the main backround image that is used in all the pages */
+    background-image: url('../images/kanapes.webp');
+    background-size: cover;
+    background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
+  }
+  
+  aside { /* Modification of the aside bar (change of color and padding to make it appear better */
+    font-family: 'Chakra';
+    background-color: rgb(146, 126, 10, 0.7);
+    padding-left: 10%;
+    padding-right: 5%;
+    margin-left: 2%;
+    border-radius: 15px;
+  }
+  
+  aside h2, aside h3, aside p { /*Every element in the aside, has the custom imported font 'Chakra'*/
+    font-family: 'Chakra';
+  }
+  
+  aside p { /*Make the letter size of the aside smaller */
+    font-size: large;
+  }
+  
+  footer{ /* Changes the position of the footer and modifies it to page styling */
+    font-family: 'Comfortaa';
+    text-align: left;
+    background-color:rgba(1, 1, 1, 0.7); /* it is slighty transparent(0.7)*/
+    bottom: 0;
+    width: 100%;
+    position:sticky;
+    color: white;
+    margin-top: 25px;
+  }
+  
+  ul { /* It removes the bullet points of the ul elements and makes them look more appealint*/
+    list-style: none;
+    padding: 0;
+  }
+  
+  li { /* This changes the font and the margin of the words inside the li */
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .main-title {/* Changes the appearance of the title of the page that belongs in the class main-title, by center alignment etc and makes it transition color when we hover over it with the mouse*/
+    font-family: 'Rowdies';
+    color: #888608; 
+    text-transform: uppercase; 
+    letter-spacing: 8px; 
+    text-align: center; 
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); 
+    transition: color 0.6s;
+    background-color:rgba(226, 223, 203, 0.7);
+    border-radius: 15px;
+  }
+  
+  .main-title:hover {  /* Changes the colour of the h1 title that belongs in the class main-title , when we hover over it , with the transition time shown above*/
+    color: #e74c3c; 
+  }
+  
+  .link-style1:hover{    /* Links that belong in the class "link-style1" enlarge when the cursor hovers over the link */
+    font-size:1.2em ;
+  }
+  .link-style1:active{   /* Links that belong in the class "link-style1" enlarge when you click them */
+    font-size:1.2em;
+  }
+  .link-style1:visited {   /*   Links that belong in the class "link-style1" change color if you have already visited them */
+  color: rgb(68, 65, 16, 0.8);
+  }
+  
+  .link-style2:hover{    /* Links that belong in the class "link-style2" enlarge when the cursor hovers over the link */
+    font-size:1.2em ;
+  }
+  .link-style2:active{   /* Links that belong in the class "link-style2" enlarge when you click them */
+    font-size:130% ;
+  }
+  .link-style2:visited {   /*   Links that belong in the class "link-style2" change color if you have already visited them */
+  color: rgba(207, 207, 196, 0.8);
+  }
+  
+  .link-style2{ /*Links that belong in the class "link-style2" have this rgb color before getting visited by the user*/
+    color:rgb(248, 253, 173)
+  }
+  
+  button[type="submit"]{  /* Buttons of type submit have different font size and backround color */  
+    font-size: 180%;
+    background-color: rgb(248, 164, 7);
+  }
+  button[type="reset"]{   /* Buttons of type reset have different font size and backround color */
+    font-size: 180%;
+    background-color: #ecc412;
+  }
+  
+  textarea#txt_problem-description{   /* Border modifications for the textarea that has id=txt-problem-description */ 
+    border-width: 3px ;
+    border-color:#ecc412;
+  }
+  
+  
+  .input-style{   /* Changes the border, font, and size for every input field used in the class contact-info*/
+    border-width: 2pt;
+    border-color:#ecc412;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 29%;
+    height: 25px;
+    margin: 5px;
+    border-radius: 10px;
+  }
+  
+  .input-style:invalid {  /* Paint every input red when its not valid */
+    border: 2px solid red;
+  }
+  
+  .fieldset-style{ /* It changes the font size of the fieldset element inside this class, and customizes the border styling */
+    font-size: 2vw;
+    border: 5px solid rgb(136, 117, 8);
+    margin:10px;
+    padding: 20px;
+  }
+  
+  legend {   /* Changes font(letter apearance and size) for every legend used in a <fieldset> */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 240%
+  }
+  
+  .details{    /* Changes font(letter apearance and size) for every label inside the details class */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 180%; 
+  }
+  
+  .registrationForm legend{  /* Makes every letter in every legend of the registration form bold */
+    font-weight: bold;
+  }
+  
+  .registrationForm button {       /* Style for the submit button of the registration form */
+    background-color: #afaf4c;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 0.3em;
+    margin-bottom: 0.3em;
+  }
+  
+   .registrationForm button:hover {   /* Changes the color of the submit button when you hover over it */
+    background-color: #383b26;
+  }
+  
+  input[type="checkbox"]{   /* Buttons of type reset have different font size and backround color */
+    width: 20px;
+    height: 25px;
+    margin-top: 15px;
+  }
+  
+  
+  .category-placeholder { /* Styles the sections of the webpage that are in the class category-placeholder with white transparent borders , different height-width etc */
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 12px;
+    border: 2px solid #cfa005;
+    background-color:rgba(233, 224, 224, 0.6); 
+    border-radius: 5px;
+    width:70%;
+  }
+  
+  #cozy-apartment { /* It changes the padding,margin and creates a border for the section with id=cozy-apartment in the properties-146.html document*/
+    padding-left: 10px;
+    margin-top: 20px;
+    border: 9px dashed rgb(187, 176, 18);
+  }
+  
+  #cost{ /* It changes the font appearance of the element <p> with id=cost in the properties-146.html document*/
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(128, 110, 10);
+  }
+  
+  .property-info img{ /*It changes the image width and height/position for every image inside the section with class=property-info */
+    width: 200px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .detailed-ad { /*It makes the pictures of the detailed description area in the properties-146 html page float to the left and have the corresponding text to their right*/
+    width: 600px;
+    height: auto;
+    float: left;
+    margin-right: 20px;
+  }
+  
+  .detailed-ad p { /*It makes the pictures of the detailed description area in the properties-146 html page have margin from top elements*/
+    margin-top: 0.1px;
+  }
+  
+  .ad-footer { /*It is used in the properties -146 page in the detailed description , so that the last paragraph is on the bottom of the box  */
+    clear: both;
+  }
+  
+  
+  #detailed-description{ /* It changes the padding,margin and creates a border for the section with id=detailed-description in the properties-146.html document*/
+    padding-left: 10px;
+    margin-top: 20px;
+    border: 9px double rgb(112, 97, 10);
+  }
+  
+  #technical-specifications{  /* It changes the padding,margin and creates a border for the section with id=technical-specifications in the properties-146.html document*/
+    padding-left: 10px;
+    margin-top: 20px;
+    border:7px groove rgb(110, 94, 2);
+  }
+  
+  #dates{ /* It changes the padding,margin and creates a border for the section with id=dates in the properties-146.html document*/
+    padding-left: 10px;
+    margin-top: 20px;
+    border: 7px solid  rgb(201, 173, 15);
+  }
+  
+  #views{ /* It changes the padding,margin and creates a border for the section with id=views in the properties-146.html document*/
+    padding-left: 10px;
+    margin-top: 20px;
+    border: 7px solid  rgb(206, 195, 131);
+  }
+  
+  .categories { /*Changes the margin of the h2 headers in the class "categories" */
+    margin-left: 25px;
+  }
+  
+  .ad { /*It changes the tables margins etc, that belongs in the class "ad"*/
+    margin-top: 20px;
+    border: 2px solid #cfa005;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .head th { /*It changes the  margins etc, of all th elements that belong in class "head"*/
+    border: 2px solid #cfa005;
+    background-color:rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  .ad td { /*It aligns in the center all the elements of class 'ad'*/
+    text-align: center;
+  }
+  
+  .ad img { /*It changes the appearance of the images that belong in the class 'ad' */
+    max-width: 50%;
+    text-align: center;
+    height: 50%;
+    margin: auto;
+    float: none;
+  }
+  
+  .seperative-border{ /*It creates a seperative border in the div elements of the about us page*/
+    border: 5px groove rgb(128, 100, 49) ;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .photo {  /*It changes the appearance of the images that have class="photo" */
+    margin: 1em 1em;;
+    float: left;
+    max-width: 100%;
+    width: 30%;
+    
+  } 
+  
+  @media (max-width:500px){ /* Media Query for Viewports up to 500px */
+    .grid-container{  /*This class creates a grid layout for the main components of the page(min,header,footer,aside,....) with 1 column and auto rows based on the content*/
+      display: grid;
+      grid-auto-rows: minmax(50px, auto);
+    }
+  
+    .grid-item1 { /*First item of the grid container, it will be presented on the entire column(1 to 2) and on the first-second row */
+      grid-column: 1/2;
+      grid-row: 1/3;
+    } 
+  
+    /* .grid-item2 { /*Second item of the grid container, it will be presented on the entire column(1 to 2) and on the second-third row
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }  */
+    
+  
+    .grid-item3 { /*Third item of the grid container, it will be presented on the entire column(1 to 2) and on the third-fourth row */
+      grid-column: 1/2;
+      grid-row: 3/4;
+    }
+  
+    .grid-item4 { /*Fourth item of the grid container, it will be presented on the entire column(1 to 2) and on the fourth-fifth row */
+      grid-column: 1/2;
+      grid-row: 4/5;
+    }
+  
+    .grid-item5 { /*Fifth item of the grid container, it will be presented on the entire column(1 to 2) and on the fifth-sixth row */
+      grid-column: 1/2;
+      grid-row: 5/6;
+    }
+  
+    .grid-item6 { /* Sixth item of the grid container, it will be presented on the entire column(1 to 2) and on the sixth-seventh row*/
+      grid-column: 1/2;
+      grid-row: 6/7;
+    }
+  
+    .main-title { /*This class extends the elements of the same class declared earlier outside the @media query, and makes the main title appear bigger based on the length of the viewport */
+      font-size: 5vw; 
+      padding: 9%;
+      margin : 9px;
+    }
+  
+    .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
+      font-size: 6vw;
+    }
+  
+    footer { /* This class extends the elements of the same class declared earlier outside the @media query, and changes the font size of the footer based on the length of the viewport */
+      font-size:13px;
+      padding-top: 0.5%;
+      padding-left: 1%;
+    }
+  
+    h2 { /* This class extends the elements of the same class declared earlier outside the @media query, and changes the text alignment-font size based on the length of the viewport*/
+      text-align: left; 
+      font-size: 16px;
+      margin-left: 0px;
+    }
+  }
+  
+  @media (min-width:500px){ /* Media Query for Viewports from 500px and more */
+    .grid-container{  /*This class creates a grid layout for the main components of the page(min,header,footer,aside,....) with 2 columns and auto rows based on the content*/
+      display: grid;
+      grid-template-columns: 2fr 150px ;
+      grid-auto-rows: minmax(50px, auto);
+    }
+  
+    .grid-item1 { /*First item of the grid container, it will be presented on every column(1 to 3) and on the first-second row */
+      grid-column: 1/3;
+      grid-row: 1/3;
+    } 
+  
+    /* .grid-item2 { /*Second item of the grid container, it will be presented on every column and on the second-third row 
+      grid-column: 1/3;
+      grid-row: 2/3;
+    }  */
+   
+  
+    .grid-item3 { /*Third item of the grid container, it will be presented on every column and on the third-fourth row */
+      grid-column: 1/3;
+      grid-row: 3/4;
+    }
+  
+    .grid-item4 { /*Fourth item of the grid container, it will be presented on the first column only and on the fourth-fifth row */
+      grid-column: 1/2;
+      grid-row: 4/5;
+    }
+  
+    .grid-item5 { /*Fifth item of the grid container, it will be presented on the second column only and on the fourth-fifth row */
+      grid-column: 2/3;
+      grid-row: 4/5;
+    }
+  
+    .grid-item6 { /* Sixth item of the grid container, it will be presented on every column(1 to 3) and on the fifth and sixth row*/
+      grid-column: 1/3;
+      grid-row: 5/6;
+    }
+    .main-title { /*This class extends the elements of the same class declared earlier outside the @media query, and makes the main title appear bigger based on the length of the viewport */
+      font-size: 5vw; 
+      padding: 5%;
+      margin : 8px;
+    }
+  
+    .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
+      font-size: 6vw;
+    }
+  
+    footer { /* This class extends the elements of the same class declared earlier outside the @media query, and changes the font size of the footer based on the length of the viewport */
+      font-size: 15px;
+      padding-top: 0.5%;
+      padding-left: 1%;
+    }
+  
+    h2 { /* This class extends the elements of the same class declared earlier outside the @media query, and changes the text alignment-font size based on the length of the viewport*/
+      text-align: left; 
+      /* font-size: */
+    }
+  }
+  
+  
+  @media (min-width:700px){ /* Media Query for Viewports from 700px and more */
+    .grid-container{  /*This class creates a grid layout for the main components of the page(min,header,footer,aside,....) with 3 columns and auto rows based on the content*/
+      display: grid;
+      grid-template-columns: 2fr 2fr 250px ;
+      grid-auto-rows: minmax(50px, auto);
+    }
+  
+    .grid-item1 { /*First item of the grid container, it will be presented on every column(1 to 4) and on the first-second row */
+      grid-column: 1/4;
+      grid-row: 1/3;
+    } 
+/*   
+    .grid-item2 { /*Second item of the grid container, it will be presented on every column(1 to 4)and on the second-third row 
+      grid-column: 1/4;
+      grid-row: 2/3;
+    } 
+    */
+  
+    .grid-item3 { /*Third item of the grid container, it will be presented on every column and on the third-fourth row */
+      grid-column: 1/4;
+      grid-row: 3/4;
+    }
+  
+    .grid-item4 { /*Fourth item of the grid container, it will be presented on the first two columns and on the fourth-fifth row */
+      grid-column: 1/3;
+      grid-row: 4/5;
+    }
+  
+    .grid-item5 { /*Fifth item of the grid container, it will be presented on the last column(third) and on the fourth-fifth row */
+      grid-column: 3/4;
+      grid-row: 4/5;
+    }
+  
+    .grid-item6 { /* Sixth item of the grid container, it will be presented on every column(1 to 4) and on the fifth and sixth row*/
+      grid-column: 1/4;
+      grid-row: 5/6;
+    }
+  
+    .main-title { /*This class extends the elements of the same class declared earlier outside the @media query, and makes the main title appear bigger based on the length of the viewport */
+      font-size: 3vw; 
+      padding: 2%;
+      margin: 0px;
+    }
+  
+    .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
+      font-size: 2.5vw;
+    }
+    
+    footer { /* This class extends the elements of the same class declared earlier outside the @media query, and changes the font size of the footer based on the length of the viewport */
+      font-size:18px;
+      padding-top: 0.5%;
+      padding-left: 1%;
+    }
+  
+    h2 { /* This class extends the elements of the same class declared earlier outside the @media query, and changes the text alignment-font size based on the length of the viewport*/
+      text-align: left; 
+    }
+  
+    .fieldset-style { /*This overwrites the predeclared font size of the fieldset style declared earlier outside the @media query */
+      font-size: 1vw;
+    }
+  }
+  
+  .categories-flex-container { /*This class creates a flex layout for the elements of the category page, making them appear one after another on different rows based on the length of the content*/
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    flex: 1 1 0;
+    justify-content: center;
+    justify-content: space-around;
+  }
+  
+  .table-flex-container{ /*This class creates a flex layout for the elements of the table, making them appear one after another on different columns based on the length of the content */
+    display:flex;
+    flex-direction: column;
+  }
+  
+  .properties-flex-container{ /*This class creates a flex layout for the elements of the property ad, making them appear on different rows, based on how much space they take inside the page */
+    display:flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    flex: 1 1 0;
+    justify-content: center;
+    justify-content: space-around;
+  }
+  
+  @media (min-width:1200px){ /* Media Query for Viewports from 1200px and more */
+  
+    .main-title { /*This class extends the elements of the same class declared earlier outside the @media query, and makes the main title appear bigger based on the length of the viewport */
+      font-size: 2.5vw; 
+      padding: 1%;
+      margin: 0px;
+    }
+  
+    .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
+      font-size: 2vw;
+    }
+  }
+  
+  @media (min-width:2000px){ /* Media Query for Viewports from 2000px and more */
+    .menu-element{ /*This class extends the elements of the same class declared earlier outside the @media query, and makes the font - size appear different based on the length of the viewport */
+      font-size: 1.5vw;
+    }
+  
+    .main-title { /*This class extends the elements of the same class declared earlier outside the @media query, and makes the main title appear bigger based on the length of the viewport */
+      font-size: 1.2vw; 
+      padding: 1%;
+      margin: 0px;
+    }
+  
+    .main-title:hover {  /* This class extends the elements of the same class declared earlier outside the @media query and changes the font of the title when we hover over it, based on the length of the viewport*/
+      font-size: 1.4vw;
+    }
+  }
