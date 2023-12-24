@@ -1,23 +1,23 @@
 /* Put your CSS stylesheets here */
-@font-face { /*It imports the custom font we downloaded*/
+/* @font-face { /*It imports the custom font we downloaded
   font-family: 'Rowdies';
   src: url(fonts/Rowdies-Bold.ttf);
 }
 
-@font-face { /*It imports the custom font we downloaded*/
+@font-face { /*It imports the custom font we downloaded
   font-family: 'Cookies';
   src: url(fonts/Cookie-Regular.ttf);
 }
 
-@font-face { /*It imports the custom font we downloaded*/
+@font-face { /*It imports the custom font we downloaded
   font-family: 'Chakra';
   src: url(fonts/ChakraPetch-Light.ttf);
 }
 
-@font-face { /*It imports the custom font we downloaded*/
+@font-face { /*It imports the custom font we downloaded
   font-family: 'Comfortaa';
   src: url(fonts/Comfortaa-VariableFont_wght.ttf);
-}  
+}   */
   
 h2 {  /* Changes the font, font size, color, text position, shadow and margin from other texts for every h2 headers */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -39,7 +39,6 @@ h2 {  /* Changes the font, font size, color, text position, shadow and margin fr
     font-size: 173%; 
     color: #000000; 
     text-align: left; 
-    margin-top: 5% ; 
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); 
   }
   
@@ -56,10 +55,10 @@ h2 {  /* Changes the font, font size, color, text position, shadow and margin fr
   }
   
   img { /*It changes the height , weight etc of all the images */
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
-    margin: 0%;
     float:left;
+    margin-bottom: 10px;
     margin-right: 15px;
   } 
   
@@ -336,6 +335,19 @@ h2 {  /* Changes the font, font size, color, text position, shadow and margin fr
     width: 30%;
     
   } 
+
+  .cost {
+    display:block;
+    clear: left;
+    margin-top: 0px;
+  }
+
+  .sub{
+    width: 250px;
+    height: 250px;
+    margin-right: 10px;
+    float:none;
+  }
   
   @media (max-width:500px){ /* Media Query for Viewports up to 500px */
     .grid-container{  /*This class creates a grid layout for the main components of the page(min,header,footer,aside,....) with 1 column and auto rows based on the content*/
