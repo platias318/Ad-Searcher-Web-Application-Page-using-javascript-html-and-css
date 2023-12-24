@@ -22,7 +22,7 @@
         Load the JS code for the page. The code is located inside the public folder.
         However, express serves this content under root path (see appropriate command in index.js)
     -->
-    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/categoryDetails.js" type="text/javascript"></script>
 
     <!--
         Load CSS stylesheets from folder public/css/style.css.
@@ -44,33 +44,25 @@
         </header> 
 
 
-
         <div class="grid-item3">
-            <h1 class="main-title">Categories</h1>
+            <h1 class="main-title">Category Details</h1>
         </div>
 
-        <script id="category-template" 
+        <script id="category-detail-template" 
                 type = "text/x-handlebars-template">
             {{#each this}}
-                <section class="category-placeholder">
-                    <h1>Κατηγορία:{{this.title}}</h1>
-                    <a href="category.html?id={{this.id}}">
-                        <img src="http://wiki-ads.onrender.com/{{this.img_url}}"   alt="{{this.title}}">
-                    </a>
-                    <ul>
-                        {{#each subcategories}}                
-                                    <li>
-                                        <a href="subcategory.html?id={{this.id}}" class="link-style1"> {{this.title}} </a>    
-                                    </li>
-                                            
-                        {{/each}}
-                    </ul> 
-                </section> 
-            {{/each}}   
+                <section class="property-info" id="detailed-description">
+                    <h2>Τίτλος:{{this.title}}</h2>
+                    <p>Περιγραφή:{{this.description}}</p>
+                    <img src="http://wiki-ads.onrender.com/{{this.images.[0]}}"   alt="{{this.title}}">
+                    <p>Κόστος:{{this.cost}}</p>
+                </section>
+            {{/each}}
+            
 
         </script>
 
-        <div id="categories"> </div> <!--The template will be loaded here with DOM API-->
+        <div id="category_details"> </div> <!--The template will be loaded here with DOM API-->
             
         <!-- &nbsp leaves a space in between two words -->
         <footer class="grid-item6">
