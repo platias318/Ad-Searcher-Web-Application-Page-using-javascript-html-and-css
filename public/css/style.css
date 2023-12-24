@@ -1,6 +1,25 @@
 /* Put your CSS stylesheets here */
-   
-  h2 {  /* Changes the font, font size, color, text position, shadow and margin from other texts for every h2 headers */
+@font-face { /*It imports the custom font we downloaded*/
+  font-family: 'Rowdies';
+  src: url(fonts/Rowdies-Bold.ttf);
+}
+
+@font-face { /*It imports the custom font we downloaded*/
+  font-family: 'Cookies';
+  src: url(fonts/Cookie-Regular.ttf);
+}
+
+@font-face { /*It imports the custom font we downloaded*/
+  font-family: 'Chakra';
+  src: url(fonts/ChakraPetch-Light.ttf);
+}
+
+@font-face { /*It imports the custom font we downloaded*/
+  font-family: 'Comfortaa';
+  src: url(fonts/Comfortaa-VariableFont_wght.ttf);
+}  
+  
+h2 {  /* Changes the font, font size, color, text position, shadow and margin from other texts for every h2 headers */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     color: #000000; 
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); 
@@ -103,7 +122,10 @@
   .main-title:hover {  /* Changes the colour of the h1 title that belongs in the class main-title , when we hover over it , with the transition time shown above*/
     color: #e74c3c; 
   }
-  
+
+  .link-style1{
+    color:#727605;
+  }
   .link-style1:hover{    /* Links that belong in the class "link-style1" enlarge when the cursor hovers over the link */
     font-size:1.2em ;
   }

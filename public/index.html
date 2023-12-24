@@ -52,24 +52,20 @@
         <script id="category-template" 
                 type = "text/x-handlebars-template">
             {{#each this}}
-                <h1>{{this.title}}</h1>
-                <a href="category.html?id={{this.id}}">
-                    <img src="http://wiki-ads.onrender.com/{{this.img_url}}"   alt="{{this.title}}">
-                </a>
-                {{#if this.this.subcategories.length}}
-                <ul>
-                    {{#each subcategories}}   
-                            <p> yooooo</p>              
-                            
-                                <li>
-                                    <a href="subcategory.html"> {{this.title}} </a>    
-                                </li>
-                                           
-                    {{/each}}
-                </ul>  
-                {{else}}
-                    <p>No subcategories available mann</p>
-                {{/if}}
+                <section class="category-placeholder">
+                    <h1>Κατηγορία:{{this.title}}</h1>
+                    <a href="category.html?id={{this.id}}">
+                        <img src="http://wiki-ads.onrender.com/{{this.img_url}}"   alt="{{this.title}}">
+                    </a>
+                    <ul>
+                        {{#each subcategories}}                
+                                    <li>
+                                        <a href="subcategory.html?id={{this.id}}" class="link-style1"> {{this.title}} </a>    
+                                    </li>
+                                            
+                        {{/each}}
+                    </ul> 
+                </section> 
             {{/each}}   
 
         </script>

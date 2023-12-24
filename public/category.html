@@ -45,17 +45,18 @@
 
 
         <div class="grid-item3">
-            <h1 class="main-title">${categories.title}</h1>
+            <h1 class="main-title">Category Details</h1>
         </div>
 
         <script id="category-detail-template" 
                 type = "text/x-handlebars-template">
             {{#each this}}
-                <h2>{{this.title}}</h2>
-                <p>{{this.description}}</p>
-                var firstImage = this.images[0];
-                <img src="http://wiki-ads.onrender.com/{{firstImage}}"   alt="{{this.title}}">
-                <p>{{this.cost}}</p>
+                <section class="property-info" id="detailed-description">
+                    <h2>Τίτλος:{{this.title}}</h2>
+                    <p>Περιγραφή:{{this.description}}</p>
+                    <img src="http://wiki-ads.onrender.com/{{this.images.[0]}}"   alt="{{this.title}}">
+                    <p>Κόστος:{{this.cost}}</p>
+                </section>
             {{/each}}
             
 

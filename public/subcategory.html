@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Ad seacher</title>
+    <meta charset="UTF-8">
+
+    <meta name="description" content="Advertisment Categories">
+    <meta name="keywords" content="Advertisment, Ad, Categories">
+    <meta name="author" content="Konstantinos Platias-Pavlos Tsikrikas">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/png" href="images/logo_use_2.png"> <!-- fix that-->
+
+
+    <!-- Load the Handlebars library. The Handlebars object is 
+    now available in the rest of the scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <!--
+        Load the JS code for the page. The code is located inside the public folder.
+        However, express serves this content under root path (see appropriate command in index.js)
+    -->
+    <script src="js/subcategories.js" type="text/javascript"></script>
+
+    <!--
+        Load CSS stylesheets from folder public/css/style.css.
+        Express serves this content, also, under the root path.
+    -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+</head>
+
+<body>
+    <!-- <h1>Application start page</h1>
+
+    <p>The page should be loaded from your Node server at URL location <a href="http://localhost:8080/">http://localhost:8080/</a></p>
+    <p>Create appropriate request handlers in file <code>index.js</code> </p> -->
+
+    <div class="grid-container">
+        <header class="grid-item1">
+            <h1 class="main-title">AdSearcher</h1> 
+        </header> 
+
+
+        <div class="grid-item3">
+            <h1 class="main-title">Subcategory Details</h1>
+        </div>
+
+        <script id="subcategory-detail-template" 
+                type = "text/x-handlebars-template">
+            {{#each this}}
+            <section id="technical-specifications">
+                    <h2>Τίτλος:{{this.title}}</h2>
+                    <p>Περιγραφή:{{this.description}}</p>
+                    {{#each this.images}} <!-- mporei na thelei sketo images-->
+                        <img src="http://wiki-ads.onrender.com/{{this}}"   alt="{{this.title}}">
+                    {{/each}}
+                    <p>Κόστος:{{this.cost}}</p>
+            </section>
+            {{/each}}
+            
+
+        </script>
+
+        <div id="subcategory_details"> </div> <!--The template will be loaded here with DOM API-->
+            
+        <!-- &nbsp leaves a space in between two words -->
+        <footer class="grid-item6">
+            Contact us on: p3200157@aueb.gr or p3200276@aueb.gr <br>
+            Also contact us via LinkedIn : <a href="https://www.linkedin.com/in/konstantinos-platias-310a65252/" class="link-style2"> Konstantinos Platias </a> &nbsp; &nbsp; <a href="https://www.linkedin.com/in/pavlos-tsikrikas-759227295/" class="link-style2">Pavlos Tsikrikas </a> 
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,5 +1,4 @@
 // Put your client side JS code here
-    
 window.onload = function() {
 
     var templates = {}
@@ -21,26 +20,27 @@ window.onload = function() {
 
     fetch(url, init)
         .then(response => response.json())
-        .then(obj => {
-            console.log('Received object', obj);
-            // Fetch subcategories for each category
-            obj.forEach(category=> {
+        .then(categories => {
+            console.log('Received categories', categories);
+
+            // Fetch subcategories for each category using map
+            let fetchSubcategories = categories.map(category => {
                 let subUrl = new URL(`https://wiki-ads.onrender.com/categories/${category.id}/subcategories`);
-                
-                fetch(subUrl, init)
+                return fetch(subUrl, init)
                     .then(response => response.json())
                     .then(subObj => {
                         console.log('Received subcategories', subObj);
                         category.subcategories = subObj;
-                    })
-                    .catch(error => {console.log(error)})
+                        return category;
+                    });
             });
 
-            let content = templates.categoryScript(obj);
-            let div = document.getElementById("categories");
-            div.innerHTML = content;
+            Promise.all(fetchSubcategories)
+                .then(categoriesWithSubcategories => {
+                    let content = templates.categoryScript(categoriesWithSubcategories);
+                    let div = document.getElementById("categories");
+                    div.innerHTML = content;
+                });
         })
-
-
-
+        .catch(error => {console.log(error)});
 }
