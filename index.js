@@ -32,11 +32,6 @@ app.get('/', function(req, res){
 
 app.post('/login', function(req, res){
     const {username, password} = req.body;
-    console.log(username);
-
-    console.log('Username:', username);
-    console.log('Password:', password);
-
     if(username === "admin" && password === "admin") {
         res.status(200).json({status: 200, message: 'User authenticated'}); // return a user id 
     } else {

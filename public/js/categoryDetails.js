@@ -48,7 +48,7 @@ window.onload = function() {
 // Attach this function to the form's submit event
 async function handleFormSubmit(event) {
     // Prevent the form from being submitted normally
-    //event.preventDefault();
+    event.preventDefault();
 
     // Get the username and password from the form
     const username = document.getElementById('usernameInput').value;
@@ -61,6 +61,7 @@ async function handleFormSubmit(event) {
 async function loginUser(username, password) {
     let myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
+    myHeaders.append('Content-Type', 'application/json');
 
     let init = {
         method: "POST",
