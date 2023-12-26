@@ -1,4 +1,5 @@
 // Put your client side JS code here
+let sessionId="";
 
 window.onload = function() {
 
@@ -34,12 +35,6 @@ window.onload = function() {
         })
         .catch(error => {console.log(error)})
 
-    // document.getElementById("login").addEventListener('submit', function() {
-    // // Call the loginUser function
-    // let username = document.getElementById('usernameInput').value;
-    // let password = document.getElementById('passwordInput').value;
-    // loginUser(username,password); /// put the inputs
-//});
     document.getElementById('login').addEventListener('submit', handleFormSubmit);
 
 
@@ -81,14 +76,44 @@ async function loginUser(username, password) {
         .then(response => response.json())
         .then(obj => {
             if(obj.status === 200) {  //obj.status === 200  obj.message === 'User authenticated'
+                const form = document.getElementById('login');
+                //const formElements = form.elements;
+            
+                sessionId = obj.sessionId;
+
+                // for (let i = 0; i < formElements.length; i++) {
+                //     formElements[i].disabled = true;
+                // }
+
+                form.textContent="";
+
+                console.log('Received session id:', sessionId);
+                alert('Authentication successful! Form is now disabled.');
                 console.log('User authenticated');
-                // Display a success message on the page
-                document.getElementById('message').textContent = 'User authenticated';
-            } else {
-                console.log('Authentication failed');
-                // Display an error message on the page
-                document.getElementById('message').textContent = 'Authentication failed';
-            }
+                } else {
+                    console.log('Authentication failed');
+                    alert('Authentication failed. Please try again.');
+                }
         })
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.body.addEventListener('click', function(e) {
+        if(e.target && e.target.nodeName == "BUTTON") {
+            // Check if the clicked element is a button
+            if(e.target.classList.contains('favourites')) {
+                // Check if the button has the class 'favourites'
+                console.log('Favourites button clicked');
+                if(sessionId==""){
+                    alert('Please log in to add to favourites');
+                }
+                // Add your code here to handle the button click
+                console.log(sessionId);
+            }else{
+                console.log('wasnt added for favourites');
+            }
+        }
+    });
+});
+
 

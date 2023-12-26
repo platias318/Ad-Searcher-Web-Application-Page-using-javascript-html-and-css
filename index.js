@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const port = 8080
+const { v4: uuidv4 } = require('uuid');
 
 app.listen(port)
 
@@ -32,8 +33,14 @@ app.get('/', function(req, res){
 
 app.post('/login', function(req, res){
     const {username, password} = req.body;
-    if(username === "admin" && password === "admin") {
-        res.status(200).json({status: 200, message: 'User authenticated'}); // return a user id 
+    if (username === "admin" && password === "admin") {
+        const sessionId = uuidv4();
+        const responseObject = {
+          status: 200,
+          message: 'User authenticated',
+          sessionId: sessionId
+        };
+        res.status(200).json(responseObject);
     } else {
         res.status(401).json({status: 401, message: 'Authentication failed'});
     }
