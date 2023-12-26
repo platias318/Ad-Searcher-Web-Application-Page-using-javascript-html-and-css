@@ -49,7 +49,7 @@
         </div>
 
         <div class="grid-item5">
-            <form class="registrationForm" method=POST id="login">
+            <form class="registrationForm" action="/login" method="post" id="login">
                 
                 <fieldset class="fieldset-style">
                     <legend>Login</legend>
@@ -58,8 +58,9 @@
 
                     <label for="password" class="details">Password:</label>
                     <input type="password" id="passwordInput" name="password"  class="input-style" required><br>
-
                 </fieldset>
+                
+                <p id="message"></p>
 
                 <button type="submit" id="loginButton">Submit</button>
             </form>
