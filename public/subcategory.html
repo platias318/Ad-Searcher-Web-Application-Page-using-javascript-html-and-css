@@ -58,6 +58,13 @@
                         <img class="sub" src="http://wiki-ads.onrender.com/{{this}}"   alt="{{this.title}}">
                     {{/each}}
                     <p>Κόστος:{{this.cost}}</p>
+                    <table>
+                        {{#each features}}
+                        <tr>
+                            <td>{{this}}</td>
+                        </tr>
+                        {{/each}}
+                    </table>
             </section>
             {{/each}}
             

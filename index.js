@@ -30,4 +30,16 @@ app.get('/', function(req, res){
     })
 })
 
+app.post('/login', function(req, res){
+    const {username, password} = req.body;
+
+    if(username === 'kostas' && password === 'kenteris') {
+        res.status(200).send('User authenticated'); // return a user id 
+    } else {
+        res.status(401).send('Authentication failed');
+    }
+})
+
+
+
 

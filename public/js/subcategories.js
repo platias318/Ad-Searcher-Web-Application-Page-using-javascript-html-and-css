@@ -28,9 +28,12 @@ window.onload = function() {
         .then(response => response.json())
         .then(obj => {
             console.log('Received object', obj)
-        let content = templates.categoryDetailsScript(obj);
-        let div = document.getElementById("subcategory_details");
-        div.innerHTML = content;
+            obj.forEach(obj => {
+                obj.features = obj.features.split(';');
+            });
+            let content = templates.categoryDetailsScript(obj);
+            let div = document.getElementById("subcategory_details");
+            div.innerHTML = content;
         })
         .catch(error => {console.log(error)})
 

@@ -48,6 +48,23 @@
             <h1 class="main-title">Category Details</h1>
         </div>
 
+        <div class="grid-item5">
+            <form class="registrationForm" method=POST id="login">
+                
+                <fieldset class="fieldset-style">
+                    <legend>Login</legend>
+                    <label for="username" class="details">Username:</label>
+                    <input type="text" id="usernameInput" name="username"  class="input-style" maxlength="12" autocomplete="username" required><br>
+
+                    <label for="password" class="details">Password:</label>
+                    <input type="password" id="passwordInput" name="password"  class="input-style" required><br>
+
+                </fieldset>
+
+                <button type="submit" id="loginButton">Submit</button>
+            </form>
+        </div>
+
         <script id="category-detail-template" 
                 type = "text/x-handlebars-template">
             {{#each this}}
@@ -62,7 +79,7 @@
 
         </script>
 
-        <div id="category_details"> </div> <!--The template will be loaded here with DOM API-->
+        <div class="grid-item4" id="category_details"> </div> <!--The template will be loaded here with DOM API-->
             
         <!-- &nbsp leaves a space in between two words -->
         <footer class="grid-item6">
