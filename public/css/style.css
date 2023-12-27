@@ -1,23 +1,4 @@
 /* Put your CSS stylesheets here */
-/* @font-face { /*It imports the custom font we downloaded
-  font-family: 'Rowdies';
-  src: url(fonts/Rowdies-Bold.ttf);
-}
-
-@font-face { /*It imports the custom font we downloaded
-  font-family: 'Cookies';
-  src: url(fonts/Cookie-Regular.ttf);
-}
-
-@font-face { /*It imports the custom font we downloaded
-  font-family: 'Chakra';
-  src: url(fonts/ChakraPetch-Light.ttf);
-}
-
-@font-face { /*It imports the custom font we downloaded
-  font-family: 'Comfortaa';
-  src: url(fonts/Comfortaa-VariableFont_wght.ttf);
-}   */
   
 .favourites{
   background-color: #869202; /* Green background color */

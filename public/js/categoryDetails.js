@@ -1,5 +1,7 @@
 // Put your client side JS code here
 let sessionId="";
+let username="";
+let password="";
 
 window.onload = function() {
 
@@ -46,8 +48,8 @@ async function handleFormSubmit(event) {
     event.preventDefault();
 
     // Get the username and password from the form
-    const username = document.getElementById('usernameInput').value;
-    const password = document.getElementById('passwordInput').value;
+    username = document.getElementById('usernameInput').value;
+    password = document.getElementById('passwordInput').value;
 
     // Call your loginUser function
     loginUser(username, password);
@@ -76,14 +78,8 @@ async function loginUser(username, password) {
         .then(response => response.json())
         .then(obj => {
             if(obj.status === 200) {  //obj.status === 200  obj.message === 'User authenticated'
-                const form = document.getElementById('login');
-                //const formElements = form.elements;
-            
+                const form = document.getElementById('login');            
                 sessionId = obj.sessionId;
-
-                // for (let i = 0; i < formElements.length; i++) {
-                //     formElements[i].disabled = true;
-                // }
 
                 form.textContent="";
 
@@ -104,12 +100,53 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if(e.target.classList.contains('favourites')) {
                 // Check if the button has the class 'favourites'
                 console.log('Favourites button clicked');
-                if(sessionId==""){
+                if(sessionId==""){//the user isnot authenticated and the sessionId is empty
                     alert('Please log in to add to favourites');
+                }else{ // the user is authenticated
+                    
+                    let section = e.target.parentElement;
+                    let title = section.querySelector('h2').innerText.split(':')[1];
+                    let image = section.querySelector('img').src;
+                    let description = section.querySelector('p').innerText.split(':')[1];
+                    let id = e.target.id.replace('favourite', '');
+                    let cost = section.querySelector('.cost').innerText.split(':')[1];
+
+                    let myHeaders = new Headers();
+                    myHeaders.append('Accept', 'application/json');
+                    myHeaders.append('Content-Type', 'application/json');
+                
+                    let init = {
+                        method: "POST",
+                        headers: myHeaders,
+                        mode: 'cors',
+                        body: JSON.stringify({
+                            id:id,
+                            title:title,
+                            description : description,
+                            cost : cost,
+                            image : image,
+                            username: username,
+                            sid : sessionId
+                        })
+                    }
+                    const url = new URL('http://localhost:8080/favourites');
+
+                    fetch(url, init)
+                    .then(response => response.json())
+                    .then(obj => {
+                        if(obj.status === 200) {  //obj.status === 200  obj.message === 'User authenticated'
+                            console.log("it was added to favourites succesfully");
+                            document.getElementById(`favourite${id}`).disabled=true;
+
+                            } else {
+                                console.log('it wasnt added');
+                                alert('Authentication failed. Please try again.');
+                            }
+                    })
                 }
-                // Add your code here to handle the button click
-                console.log(sessionId);
+
             }else{
+
                 console.log('wasnt added for favourites');
             }
         }
