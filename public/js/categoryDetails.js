@@ -111,6 +111,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     let id = e.target.id.replace('favourite', '');
                     let cost = section.querySelector('.cost').innerText.split(':')[1];
 
+                    console.log(section, title, image, description, id, cost);
+
                     let myHeaders = new Headers();
                     myHeaders.append('Accept', 'application/json');
                     myHeaders.append('Content-Type', 'application/json');
@@ -132,21 +134,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     const url = new URL('http://localhost:8080/favourites');
 
                     fetch(url, init)
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
                     .then(obj => {
-                        if(obj.status === 200) {  //obj.status === 200  obj.message === 'User authenticated'
+                        if(obj.status === 200) {
                             console.log("it was added to favourites succesfully");
                             document.getElementById(`favourite${id}`).disabled=true;
-
-                            } else {
-                                console.log('it wasnt added');
-                                alert('Authentication failed. Please try again.');
-                            }
+                        } else if(obj.status===401) {
+                            console.log('it wasnt added');
+                            alert('Authentication failed. Please try again.');
+                        }
                     })
+                    .catch((error) => {
+                        console.error('There has been a problem with your fetch operation:', error);
+                    });
                 }
-
             }else{
-
                 console.log('wasnt added for favourites');
             }
         }

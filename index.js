@@ -21,7 +21,6 @@ userList.forEach(user => {
     favAds.set(user.username, []);
 });
 
-
 app.listen(port)
 
 /* 
@@ -73,20 +72,38 @@ app.post('/login', function(req, res){
 
 app.post('/favourites', function(req, res){
     const {id, title, description, cost, image, username, sid} = req.body;
+    console.log(id,title,description,cost,image, username, sid);
     let authenticated = false;
+    let alreadyIn = false;
     for (let i = 0; i < userList.length; i++) {
         let user = userList[i];
         if (username === user.username && sid === user.sid){
-            console.log("Added to favourites!");
-            let adObj= contacts.Ad(id, title, description, cost, image, username, sid);
-            favAds.get(username).push(adObj);
-            res.status(200).json({status: 200, message: 'Ad added to the favourites list'});
             authenticated = true;
-            break;
+            favAds.get(username).forEach(ad =>{
+                if(ad.id==id){
+                    console.log("the ad is already in the list from an earlier session");
+                    alreadyIn=true;
+                }
+            })
+
+            if(alreadyIn==false){
+                console.log("Added to favourites!");
+                let adObj= new contacts.Ad(id, title, description, cost, image, username, sid);
+                favAds.get(username).push(adObj);
+                res.status(200).json({status: 200, message: 'Ad added to the favourites list'});
+                favAds.get(username).forEach((value, index) => {
+                    console.log(`  Value ${index + 1}: ${value.title}`);
+                });
+                break;
+            }
         }
     }
     if (!authenticated) {
         res.status(401).json({status: 401, message: 'sid doesnt match the username'});
+    }else{
+        if(alreadyIn){
+            res.status(409).json({status: 409, message: 'ad is already in favourites list'});
+        }
     }
 })
 
