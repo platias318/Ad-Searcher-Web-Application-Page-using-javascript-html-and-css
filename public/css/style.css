@@ -1,7 +1,27 @@
 /* Put your CSS stylesheets here */
-  
+ 
+.favourites-button {
+  display: none; /* The button is hidden initially */
+  padding: 10px 20px; /* Adjust as needed */
+  background-color: #9cbe00; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Adjust as needed */
+  text-align: center;
+  margin-left: 30px;
+  margin-top: 20px;
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.favourites-button:hover {
+  background-color: #ff7b00; /* Green background on hover */
+}
+
+
 .favourites{
-  background-color: #869202; /* Green background color */
+  background-color: #7e9704; /* Green background color */
   color: white; /* White text color */
   padding: 10px 20px; /* Padding around the button text */
   border: none; /* Remove border */

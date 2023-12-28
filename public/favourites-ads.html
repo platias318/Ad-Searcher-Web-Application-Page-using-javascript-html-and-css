@@ -22,7 +22,9 @@
         Load the JS code for the page. The code is located inside the public folder.
         However, express serves this content under root path (see appropriate command in index.js)
     -->
-    <script src="js/categoryDetails.js" type="text/javascript"></script>
+    
+    <script src="js/favourites-ads.js" type="text/javascript"></script>
+
 
     <!--
         Load CSS stylesheets from folder public/css/style.css.
@@ -45,44 +47,23 @@
 
 
         <div class="grid-item3">
-                <h1 class="main-title">Category Details</h1>
+            <h1 class="main-title">Favourite Ads</h1>
         </div>
 
-        <div class="grid-item5">
-            <form class="registrationForm" action="/login" method="post" id="login">
-                
-                <fieldset class="fieldset-style">
-                    <legend>Login</legend>
-                    <label for="username" class="details">Username:</label>
-                    <input type="text" id="usernameInput" name="username"  class="input-style" maxlength="12" autocomplete="username" required><br>
-
-                    <label for="password" class="details">Password:</label>
-                    <input type="password" id="passwordInput" name="password"  class="input-style" required><br>
-                </fieldset>
-                <button type="submit" id="loginButton">Submit</button>
-            </form>
-            <a href="" id="favListLink">
-            <button class="favourites-button" id="favList">Favourites List</button>
-            </a>
-        </div>
-
-        <script id="category-detail-template" 
-                type = "text/x-handlebars-template">
-            {{#each this}}
-                <section class="property-info" id="detailed-description">
-                    <h2>Τίτλος:{{this.title}}</h2>
-                    <img src="http://wiki-ads.onrender.com/{{this.images.[0]}}"   alt="{{this.title}}">
-                    <p>Περιγραφή:{{this.description}}</p>
-                    <p class="cost">Κόστος:{{this.cost}}</p>
-                    <button class="favourites" id="favourite{{this.id}}">Add to favourites</button>
-                </section>
+        <script id="favouritesList" 
+            type = "text/x-handlebars-template">
+            {{#each ads}}
+            <section class="property-info" id="detailed-description">
+                <h2>Τίτλος:{{this.title}}</h2>
+                <img src="{{this.image}}"   alt="{{this.title}}">
+                <p>Περιγραφή:{{this.description}}</p>
+                <p class="cost">Κόστος:{{this.cost}}</p>
+            </section>
             {{/each}}
-            
-
         </script>
 
-        <div class="grid-item4" id="category_details"> </div> <!--The template will be loaded here with DOM API-->
-            
+    <div class="grid-item4" id="favAdsUserList"> </div>
+
         <!-- &nbsp leaves a space in between two words -->
         <footer class="grid-item6">
             Contact us on: p3200157@aueb.gr or p3200276@aueb.gr <br>

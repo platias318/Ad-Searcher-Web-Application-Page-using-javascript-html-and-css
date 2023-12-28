@@ -83,6 +83,12 @@ async function loginUser(username, password) {
 
                 form.textContent="";
 
+                // Show the button
+                const button = document.getElementById('favList');
+                const a = document.getElementById('favListLink');
+                button.style.display = 'block';
+                a.href = `favourites-ads.html?username=${username}&sessionId=${sessionId}`;
+            
                 console.log('Received session id:', sessionId);
                 alert('Authentication successful! Form is now disabled.');
                 console.log('User authenticated');
