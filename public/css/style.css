@@ -366,6 +366,21 @@ input[type="checkbox"]{   /* Buttons of type reset have different font size and 
   float:none;
 }
 
+.filter {
+  margin-left: 10px;
+  border: 0px;
+  background-color: rgb(146, 126, 10, 0.7);
+  padding: 10px;
+}
+
+.filter p {
+  font-size: larger;
+}
+
+.filter label {
+  font-size: large;
+}
+
 @media (max-width:500px){ /* Media Query for Viewports up to 500px */
   .grid-container{  /*This class creates a grid layout for the main components of the page(min,header,footer,aside,....) with 1 column and auto rows based on the content*/
     display: grid;
