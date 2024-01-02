@@ -31,10 +31,6 @@ class UserDAO {
         return this.users.find(user => user.username === username) || null;
     }
   
-    // findBy(key, value) {
-    //   return this.users.find(user => user[key] === value);
-    // }
-  
     delete(user) {
       const index = this.users.findIndex(u => u.username === user.username);
       if (index !== -1) {

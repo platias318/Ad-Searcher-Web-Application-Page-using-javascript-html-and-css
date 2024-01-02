@@ -2,13 +2,13 @@
  
 .favourites-button {
   display: none; /* The button is hidden initially */
-  padding: 10px 20px; /* Adjust as needed */
-  background-color: #9cbe00; /* Blue background */
+  padding: 10px 20px; 
+  background-color: #9cbe00;
   color: white; /* White text */
   border: none; /* No border */
-  border-radius: 5px; /* Add rounded corners */
+  border-radius: 5px; /*rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Adjust as needed */
+  font-size: 16px;
   text-align: center;
   margin-left: 30px;
   margin-top: 20px;
@@ -16,7 +16,7 @@
 }
 
 .favourites-button:hover {
-  background-color: #ff7b00; /* Green background on hover */
+  background-color: #ff7b00; /* orange background on hover */
 }
 
 
@@ -26,7 +26,7 @@
   padding: 10px 20px; /* Padding around the button text */
   border: none; /* Remove border */
   border-radius: 5px; /* Add rounded corners */
-  font-size: 16px; /* Set font size */
+  font-size: 16px; 
   cursor: pointer; /* Add pointer cursor on hover */
   transition: background-color 0.3s; /* Smooth transition for background color */
   margin-bottom: 10px;

@@ -19,7 +19,7 @@ window.onload = function() {
 
     const url = new URL(`http://localhost:8080/favouritesList?username=${username}&sessionId=${sessionId}`);
 
-    fetch(url, init)
+    fetch(url, init)//get the favourites add list
         .then(response => response.json())
         .then(obj => {
             console.log('Received object', obj);

@@ -4,7 +4,7 @@ const app = express()
 const port = 8080
 const { v4: uuidv4 } = require('uuid');
 const contacts = require('./models/contacts.js');
-
+//inserting the DAOS from the contact.js module
 let userDAO = new contacts.UserDAO();
 let favouriteAds = new contacts.FavouritesDAO();
 
@@ -49,28 +49,28 @@ app.get('/', function(req, res){
     })
 })
 
-app.post('/login', function(req, res){
+app.post('/login', function(req, res){//when the user wants to login to the page
     const {username, password} = req.body;
-    const user = userDAO.find(username, password);
+    const user = userDAO.find(username, password);//find the user from the DAO object
     if(user !== null){ // the user is inside the list with the users
-      const sessionId = uuidv4();
+      const sessionId = uuidv4();//create the uuid
       userDAO.findByUsername(username).sid = sessionId;
-      const responseObject = {
+      const responseObject = { //the returned object in case of success
         status: 200,
         message: 'User authenticated',
         sessionId: sessionId
       };
       res.status(200).json(responseObject);
-    }else{
+    }else{ // the user doesnt exist
       res.status(401).json({status: 401, message: 'Authentication failed'});
     }
   });
 
 
-app.post('/favourites', function(req, res){
+app.post('/favourites', function(req, res){ // when the user wants to add an AD to the favourites list
   const {id, title, description, cost, image, username, sid} = req.body;
   let authenticated = false;
-  let alreadyIn = false;
+  let alreadyIn = false; //we cant have an ad being inside the list 2 times
 
   // Find the user by username
   let user = userDAO.findByUsername(username);
@@ -83,7 +83,7 @@ app.post('/favourites', function(req, res){
       alreadyIn = userFavourites.some(ad => ad.id === id);
     }
 
-    if (!alreadyIn) {
+    if (!alreadyIn) { // if it was not in , add it now
       console.log("Added to favourites!");
       let adObj = new contacts.Ad(id, title, description, cost, image, username, sid);
       favouriteAds.save(username, adObj);
@@ -98,7 +98,7 @@ app.post('/favourites', function(req, res){
   }
 });
 
-app.get('/favouritesList', function(req,res){
+app.get('/favouritesList', function(req,res){//we use this when the user wants to see his favourites list
   const username = req.query.username;
   const sessionId = req.query.sessionId;
   console.log(username);

@@ -68,10 +68,10 @@
             <div class="filter" id="subcategories-filter"></div>
         
         </div>
-
+<!-- handlebars template 1-->
         <script id="category-detail-template" 
                 type = "text/x-handlebars-template">
-            {{#each this}}
+            {{#each this}} <!-- for each category-->
                 <section class="property-info" id="detailed-description" data-ad-id="{{this.id}}" data-subcategory-id="{{this.subcategory_id}}">
                     <h2>Τίτλος:{{this.title}}</h2>
                     <img src="http://wiki-ads.onrender.com/{{this.images.[0]}}"   alt="{{this.title}}">
@@ -81,7 +81,7 @@
                 </section>
             {{/each}}    
         </script>
-        
+<!-- handlebars template 2-->        
         <script id="subcategories-filter-template"
                 type = "text/x-handlebars-template">
             <h2>Filter Products</h2>
@@ -89,7 +89,7 @@
             <form>
                 <input type="radio" id="all" name="subcategory" value="all" data-subcategory-id="all" checked>
                 <label for="all">Όλα</label><br>
-                {{#each this}}
+                {{#each this}}  <!-- for each subcategory-->
                 <input type="radio" id="{{this.id}}" name="subcategory" value="{{this.title}}" data-category-id="{{this.category_id}}" data-subcategory-id="{{this.id}}">
                 <label for="{{this.title}}">{{this.title}}</label><br>
                 {{/each}}  

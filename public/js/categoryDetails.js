@@ -11,7 +11,7 @@ window.onload = function() {
     const categoryId = urlParams.get('id');
 
     var templates = {}  
-
+    //the templates on the html file
     let categoryDetailsScript = document.getElementById("category-detail-template");
     let subcategoriesFilterScript = document.getElementById("subcategories-filter-template")
 
@@ -29,7 +29,7 @@ window.onload = function() {
 
     const url = new URL(`https://wiki-ads.onrender.com/ads?category=${categoryId}`);
 
-    fetch(url, init)
+    fetch(url, init)//get the current category based on the id
         .then(response => response.json())
         .then(obj => {
             console.log('Received object', obj)
@@ -43,7 +43,7 @@ window.onload = function() {
 
     let subUrl = new URL(`https://wiki-ads.onrender.com/categories/${categoryId}/subcategories`);
 
-    fetch(subUrl, init)
+    fetch(subUrl, init)// for the current category , get the subcategories for the bonus 1 
         .then(response => response.json())
         .then(subObj => {
             console.log('Received subcategories', subObj);
@@ -61,7 +61,7 @@ window.onload = function() {
         .catch(error => {console.log(error)})
     }
 
-    function filterAds(subcategoryId) {
+    function filterAds(subcategoryId) {//filters the data based on what the user pressed in the radius buttons
         let ads = document.querySelectorAll('.property-info');
         ads.forEach(function(ad) {
             if (ad.getAttribute('data-subcategory-id') === subcategoryId || subcategoryId === 'all') {
@@ -72,8 +72,7 @@ window.onload = function() {
         });
     }
 
-// Attach this function to the form's submit event
-async function handleFormSubmit(event) {
+async function handleFormSubmit(event) { //handles the sumbit request from the user
     // Prevent the form from being submitted normally
     event.preventDefault();
 
@@ -81,7 +80,6 @@ async function handleFormSubmit(event) {
     username = document.getElementById('usernameInput').value;
     password = document.getElementById('passwordInput').value;
 
-    // Call your loginUser function
     loginUser(username, password);
 }
 
@@ -111,9 +109,9 @@ async function loginUser(username, password) {
                 const form = document.getElementById('login');            
                 sessionId = obj.sessionId;
 
-                form.textContent="";
+                form.textContent=""; // removes the form when the user is authenticated
 
-                // Show the button
+                // Show the button 
                 const button = document.getElementById('favList');
                 const a = document.getElementById('favListLink');
                 button.style.display = 'block';
@@ -139,7 +137,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 if(sessionId==""){//the user isnot authenticated and the sessionId is empty
                     alert('Please log in to add to favourites');
                 }else{ // the user is authenticated
-                    
+                    //use DOM API to get each element of the ad
                     let section = e.target.parentElement;
                     let title = section.querySelector('h2').innerText.split(':')[1];
                     let image = section.querySelector('img').src;
@@ -167,7 +165,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             sid : sessionId
                         })
                     }
-                    const url = new URL('http://localhost:8080/favourites');
+                    const url = new URL('http://localhost:8080/favourites');//add to the favourites list
 
                     fetch(url, init)
                     .then(response => {

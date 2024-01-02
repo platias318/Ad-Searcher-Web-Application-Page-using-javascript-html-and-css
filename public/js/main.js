@@ -1,5 +1,5 @@
 // Put your client side JS code here
-window.onload = function() {
+window.onload = function() { //called when the window is loaded
 
     var templates = {}
 
@@ -35,7 +35,7 @@ window.onload = function() {
                     });
             });
 
-            Promise.all(fetchSubcategories)
+            Promise.all(fetchSubcategories)//when all the subcategories are fetched
                 .then(categoriesWithSubcategories => {
                     let content = templates.categoryScript(categoriesWithSubcategories);
                     let div = document.getElementById("categories");

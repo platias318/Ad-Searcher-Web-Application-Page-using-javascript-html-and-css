@@ -24,7 +24,7 @@ window.onload = function() {
 
     const url = new URL(`https://wiki-ads.onrender.com/ads?subcategory=${subcategoryId}`);
 
-    fetch(url, init)
+    fetch(url, init)//get the subcategories based on the id
         .then(response => response.json())
         .then(obj => {
             console.log('Received object', obj)
