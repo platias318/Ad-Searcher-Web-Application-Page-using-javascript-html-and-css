@@ -13,8 +13,10 @@ window.onload = function() {
     var templates = {}  
 
     let categoryDetailsScript = document.getElementById("category-detail-template");
+    let subcategoriesFilterScript = document.getElementById("subcategories-filter-template")
 
     templates.categoryDetailsScript = Handlebars.compile(categoryDetailsScript.textContent);
+    templates.subcategoriesFilterScript = Handlebars.compile(subcategoriesFilterScript.textContent);
 
     let myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
@@ -39,8 +41,36 @@ window.onload = function() {
 
     document.getElementById('login').addEventListener('submit', handleFormSubmit);
 
+    let subUrl = new URL(`https://wiki-ads.onrender.com/categories/${categoryId}/subcategories`);
 
-}
+    fetch(subUrl, init)
+        .then(response => response.json())
+        .then(subObj => {
+            console.log('Received subcategories', subObj);
+            let content = templates.subcategoriesFilterScript(subObj);
+            let div = document.getElementById("subcategories-filter");
+            div.innerHTML = content;
+
+            // Add event listener to the form
+            let form = div.querySelector('form');
+            form.addEventListener('change', function(event) {
+                let subcategoryId = event.target.getAttribute('data-subcategory-id');
+                filterAds(subcategoryId);
+            });
+        })
+        .catch(error => {console.log(error)})
+    }
+
+    function filterAds(subcategoryId) {
+        let ads = document.querySelectorAll('.property-info');
+        ads.forEach(function(ad) {
+            if (ad.getAttribute('data-subcategory-id') === subcategoryId || subcategoryId === 'all') {
+                ad.style.display = 'block';
+            } else {
+                ad.style.display = 'none';
+            }
+        });
+    }
 
 // Attach this function to the form's submit event
 async function handleFormSubmit(event) {

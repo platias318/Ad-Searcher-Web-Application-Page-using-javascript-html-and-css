@@ -64,21 +64,36 @@
             <a href="" id="favListLink">
             <button class="favourites-button" id="favList">Favourites List</button>
             </a>
+
+            <div id="subcategories-filter"></div>
+        
         </div>
 
         <script id="category-detail-template" 
                 type = "text/x-handlebars-template">
             {{#each this}}
-                <section class="property-info" id="detailed-description">
+                <section class="property-info" id="detailed-description" data-ad-id="{{this.id}}" data-subcategory-id="{{this.subcategory_id}}">
                     <h2>Τίτλος:{{this.title}}</h2>
                     <img src="http://wiki-ads.onrender.com/{{this.images.[0]}}"   alt="{{this.title}}">
                     <p>Περιγραφή:{{this.description}}</p>
                     <p class="cost">Κόστος:{{this.cost}}</p>
                     <button class="favourites" id="favourite{{this.id}}">Add to favourites</button>
                 </section>
-            {{/each}}
-            
-
+            {{/each}}    
+        </script>
+        
+        <script id="subcategories-filter-template"
+                type = "text/x-handlebars-template">
+            <h2>Filter Products</h2>
+            <p>Press to filter according to subcategory:</p>
+            <form>
+                <input type="radio" id="all" name="subcategory" value="all" data-subcategory-id="all" checked>
+                <label for="all">Όλα</label><br>
+                {{#each this}}
+                <input type="radio" id="{{this.id}}" name="subcategory" value="{{this.title}}" data-category-id="{{this.category_id}}" data-subcategory-id="{{this.id}}">
+                <label for="{{this.title}}">{{this.title}}</label><br>
+                {{/each}}  
+            </form>
         </script>
 
         <div class="grid-item4" id="category_details"> </div> <!--The template will be loaded here with DOM API-->
