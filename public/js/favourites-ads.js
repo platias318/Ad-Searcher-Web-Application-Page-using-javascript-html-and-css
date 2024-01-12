@@ -1,9 +1,10 @@
-window.onload = function() {
+//This is the client side javascript code of the html page "favourites-ads.html"
+window.onload = function() { 
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
     const sessionId = urlParams.get('sessionId');
     var templates = {}  
-
+    //get the templates
     let favouritesListScript = document.getElementById("favouritesList");
 
     templates.favouritesListScript = Handlebars.compile(favouritesListScript.textContent);
@@ -17,7 +18,7 @@ window.onload = function() {
         mode: 'cors',
     }
 
-    const url = new URL(`http://localhost:8080/favouritesList?username=${username}&sessionId=${sessionId}`);
+    const url = new URL(`http://localhost:8080/favouritesList?username=${username}&sessionId=${sessionId}`); //get the favourites list by the server in this url
 
     fetch(url, init)//get the favourites add list
         .then(response => response.json())

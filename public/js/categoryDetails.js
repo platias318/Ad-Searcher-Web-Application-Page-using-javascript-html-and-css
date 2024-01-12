@@ -1,9 +1,9 @@
-// Put your client side JS code here
+//This is the client side javascript code of the html page "category.html"
 let sessionId="";
 let username="";
 let password="";
 
-window.onload = function() {
+window.onload = function() {//when the window is loaded
 
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -27,26 +27,24 @@ window.onload = function() {
         mode: 'cors'
     }
 
-    const url = new URL(`https://wiki-ads.onrender.com/ads?category=${categoryId}`);
+    const url = new URL(`https://wiki-ads.onrender.com/ads?category=${categoryId}`); // the url of the wikiAds server, with the specified id as a parameter
 
     fetch(url, init)//get the current category based on the id
         .then(response => response.json())
         .then(obj => {
-            console.log('Received object', obj)
         let content = templates.categoryDetailsScript(obj);
         let div = document.getElementById("category_details");
         div.innerHTML = content;
         })
         .catch(error => {console.log(error)})
 
-    document.getElementById('login').addEventListener('submit', handleFormSubmit);
+    document.getElementById('login').addEventListener('submit', handleFormSubmit); //ads the function handleFormSubmit to be enabled when the user presses submit
 
-    let subUrl = new URL(`https://wiki-ads.onrender.com/categories/${categoryId}/subcategories`);
+    let subUrl = new URL(`https://wiki-ads.onrender.com/categories/${categoryId}/subcategories`); // the url to get the subcategories for the current category
 
     fetch(subUrl, init)// for the current category , get the subcategories for the bonus 1 
         .then(response => response.json())
         .then(subObj => {
-            console.log('Received subcategories', subObj);
             let content = templates.subcategoriesFilterScript(subObj);
             let div = document.getElementById("subcategories-filter");
             div.innerHTML = content;
@@ -80,7 +78,7 @@ async function handleFormSubmit(event) { //handles the sumbit request from the u
     username = document.getElementById('usernameInput').value;
     password = document.getElementById('passwordInput').value;
 
-    loginUser(username, password);
+    loginUser(username, password);//call this function 
 }
 
 async function loginUser(username, password) {
@@ -98,9 +96,7 @@ async function loginUser(username, password) {
         })
     }
 
-    const url = new URL('http://localhost:8080/login');
-    console.log(username);
-    console.log(password);
+    const url = new URL('http://localhost:8080/login');//the url in the server side code we created
 
     fetch(url, init)
         .then(response => response.json())
@@ -111,30 +107,26 @@ async function loginUser(username, password) {
 
                 form.textContent=""; // removes the form when the user is authenticated
 
-                // Show the button 
+                // Show the button of the favourites list
                 const button = document.getElementById('favList');
                 const a = document.getElementById('favListLink');
                 button.style.display = 'block';
-                a.href = `favourites-ads.html?username=${username}&sessionId=${sessionId}`;
+                a.href = `favourites-ads.html?username=${username}&sessionId=${sessionId}`;//put the right link in the fav list
             
-                console.log('Received session id:', sessionId);
                 alert('Authentication successful! Form is now disabled.');
-                console.log('User authenticated');
                 } else {
-                    console.log('Authentication failed');
                     alert('Authentication failed. Please try again.');
                 }
         })
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => { //event listener to all the buttons that are used to add an AD to the favourites
     document.body.addEventListener('click', function(e) {
         if(e.target && e.target.nodeName == "BUTTON") {
             // Check if the clicked element is a button
             if(e.target.classList.contains('favourites')) {
                 // Check if the button has the class 'favourites'
-                console.log('Favourites button clicked');
-                if(sessionId==""){//the user isnot authenticated and the sessionId is empty
+                if(sessionId==""){//the user isnt authenticated and the sessionId is empty
                     alert('Please log in to add to favourites');
                 }else{ // the user is authenticated
                     //use DOM API to get each element of the ad

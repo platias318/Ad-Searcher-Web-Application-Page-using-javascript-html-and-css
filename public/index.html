@@ -11,7 +11,7 @@
     <meta name="author" content="Konstantinos Platias-Pavlos Tsikrikas">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/png" href="images/logo_use_2.png"> <!-- fix that-->
+    <link rel="shortcut icon" type="image/png" href="images/logo_use_2.png">
 
 
     <!-- Load the Handlebars library. The Handlebars object is 
@@ -33,8 +33,7 @@
 </head>
 
 <body>
-    <!-- <h1>Application start page</h1>
-
+    <!--
     <p>The page should be loaded from your Node server at URL location <a href="http://localhost:8080/">http://localhost:8080/</a></p>
     <p>Create appropriate request handlers in file <code>index.js</code> </p> -->
 
@@ -51,14 +50,14 @@
 <!-- handlebars template -->  
         <script id="category-template" 
                 type = "text/x-handlebars-template">
-            {{#each this}}
+            {{#each this}} <!-- for each category in the obj the server returned-->
                 <section class="category-placeholder">
                     <h1>Κατηγορία:{{this.title}}</h1>
                     <a href="category.html?id={{this.id}}">
                         <img src="http://wiki-ads.onrender.com/{{this.img_url}}"   alt="{{this.title}}">
                     </a>
                     <ul>
-                        {{#each subcategories}}                
+                        {{#each subcategories}}  <!-- for each subcategory of the obj-->               
                                     <li>
                                         <a href="subcategory.html?id={{this.id}}" class="link-style1"> {{this.title}} </a>    
                                     </li>

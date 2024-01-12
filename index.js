@@ -1,3 +1,4 @@
+//server side code
 const express = require('express')
 const path = require('path')
 const app = express()
@@ -8,7 +9,7 @@ const contacts = require('./models/contacts.js');
 let userDAO = new contacts.UserDAO();
 let favouriteAds = new contacts.FavouritesDAO();
 
-//instantiate new users from the module contacts.js
+//instantiate new baked users from the module contacts.js
 let user1 = new contacts.User('xristos123', '12345');
 let user2 = new contacts.User('alex123', '123456');
 let user3 = new contacts.User('kostas123', '1234567');
@@ -49,7 +50,7 @@ app.get('/', function(req, res){
     })
 })
 
-app.post('/login', function(req, res){//when the user wants to login to the page
+app.post('/login', function(req, res){//It is used when the user wants to login to his account
     const {username, password} = req.body;
     const user = userDAO.find(username, password);//find the user from the DAO object
     if(user !== null){ // the user is inside the list with the users
@@ -61,7 +62,7 @@ app.post('/login', function(req, res){//when the user wants to login to the page
         sessionId: sessionId
       };
       res.status(200).json(responseObject);
-    }else{ // the user doesnt exist
+    }else{ // the user doesn't exist
       res.status(401).json({status: 401, message: 'Authentication failed'});
     }
   });

@@ -1,7 +1,7 @@
 /* Put your CSS stylesheets here */
  
 .favourites-button {
-  display: none; /* The button is hidden initially */
+  display: none; /* The button is hidden initially, it is enabled in the code  */
   padding: 10px 20px; 
   background-color: #9cbe00;
   color: white; /* White text */

@@ -1,8 +1,8 @@
-// Put your client side JS code here
+//This is the client side javascript code of the html page "index.html"
 window.onload = function() { //called when the window is loaded
 
     var templates = {}
-
+    //get the templates
     let categoryScript = document.getElementById("category-template");
 
     templates.categoryScript = Handlebars.compile(categoryScript.textContent);
@@ -16,13 +16,11 @@ window.onload = function() { //called when the window is loaded
         mode: 'cors'
     }
 
-    const url = new URL('https://wiki-ads.onrender.com/categories');
+    const url = new URL('https://wiki-ads.onrender.com/categories'); //the url to get all the categories from the wikiAds server
 
     fetch(url, init)
         .then(response => response.json())
         .then(categories => {
-            console.log('Received categories', categories);
-
             // Fetch subcategories for each category using map
             let fetchSubcategories = categories.map(category => {
                 let subUrl = new URL(`https://wiki-ads.onrender.com/categories/${category.id}/subcategories`);
@@ -35,7 +33,7 @@ window.onload = function() { //called when the window is loaded
                     });
             });
 
-            Promise.all(fetchSubcategories)//when all the subcategories are fetched
+            Promise.all(fetchSubcategories)//when all the subcategories are fetched, call the template 
                 .then(categoriesWithSubcategories => {
                     let content = templates.categoryScript(categoriesWithSubcategories);
                     let div = document.getElementById("categories");

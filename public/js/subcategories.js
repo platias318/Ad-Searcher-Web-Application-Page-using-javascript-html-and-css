@@ -1,4 +1,4 @@
-// Put your client side JS code here
+//This is the client side javascript code of the html page "subcategory.html"
     
 window.onload = function() {
 
@@ -8,7 +8,7 @@ window.onload = function() {
     const subcategoryId = urlParams.get('id');
 
     var templates = {}  
-
+    //get the templates
     let categoryDetailsScript = document.getElementById("subcategory-detail-template");
 
     templates.categoryDetailsScript = Handlebars.compile(categoryDetailsScript.textContent);
@@ -22,7 +22,7 @@ window.onload = function() {
         mode: 'cors'
     }
 
-    const url = new URL(`https://wiki-ads.onrender.com/ads?subcategory=${subcategoryId}`);
+    const url = new URL(`https://wiki-ads.onrender.com/ads?subcategory=${subcategoryId}`); //get the current subcategory 
 
     fetch(url, init)//get the subcategories based on the id
         .then(response => response.json())

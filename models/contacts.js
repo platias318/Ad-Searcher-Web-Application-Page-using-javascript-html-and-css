@@ -2,7 +2,7 @@
 e.g. carts, users etc
 */
 
-class User {
+class User { //this class is used to create users and add them to the DAO
     constructor(username, password) {
         this.username = username;
         this.password = password;
@@ -39,7 +39,7 @@ class UserDAO {
     }
   }
 //Αd 
-class Ad {
+class Ad {//this class is used to create Ads and add them to the DAO
     constructor(id, title, description, cost, image, username, sid) {
         this.id=id;
         this.title=title;
